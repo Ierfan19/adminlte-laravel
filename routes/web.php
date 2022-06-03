@@ -18,12 +18,16 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('index2');
 })->middleware('auth');
+
 Route::middleware('auth')->group(function(){
     Route::get('/form', function () {
         return view('pages/forms/general');
     });
     Route::get('/tables', function () {
         return view('pages/tables/data');
+    });
+    Route::get('/charts', function () {
+        return view('pages/charts/chartjs');
     });
 });
 
